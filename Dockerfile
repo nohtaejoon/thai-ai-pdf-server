@@ -7,4 +7,4 @@ COPY . .
 RUN python download_fonts.py
 RUN chmod +x start.sh
 ENV PORT=8080
-CMD ["sh", "start.sh"]
+CMD ["python", "run.py"]
