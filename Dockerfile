@@ -5,6 +5,6 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 RUN python download_fonts.py
-COPY start.sh .
 RUN chmod +x start.sh
-CMD ["./start.sh"]
+ENV PORT=8080
+CMD ["sh", "start.sh"]
