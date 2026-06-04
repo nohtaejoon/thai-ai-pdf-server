@@ -1,8 +1,9 @@
 [phases.install]
 cmds = [
-  "pip install flask==3.0.3 anthropic==0.40.0 reportlab==4.2.2 gunicorn==22.0.0",
-  "python download_fonts.py"
+  "python3 -m pip install --upgrade pip",
+  "python3 -m pip install flask==3.0.3 anthropic==0.40.0 reportlab==4.2.2 gunicorn==22.0.0",
+  "python3 download_fonts.py"
 ]
 
 [start]
-cmd = "gunicorn main:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120"
+cmd = "python3 -m gunicorn main:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120"
