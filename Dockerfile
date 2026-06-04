@@ -21,4 +21,4 @@ RUN python download_fonts.py
 EXPOSE 8080
 
 # 서버 실행
-CMD ["gunicorn", "main:app", "--bind", "0.0.0.0:8080", "--workers", "2", "--timeout", "120"]
+CMD gunicorn main:app --bind 0.0.0.0:${PORT:-8080} --workers 2 --timeout 120
