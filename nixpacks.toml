@@ -1,9 +1,11 @@
+[phases.setup]
+nixPkgs = ["python311", "python311Packages.pip", "python311Packages.setuptools"]
+
 [phases.install]
 cmds = [
-  "python3 -m pip install --upgrade pip",
-  "python3 -m pip install flask==3.0.3 anthropic==0.40.0 reportlab==4.2.2 gunicorn==22.0.0",
-  "python3 download_fonts.py"
+  "pip install flask==3.0.3 anthropic==0.40.0 reportlab==4.2.2 gunicorn==22.0.0",
+  "python download_fonts.py"
 ]
 
 [start]
-cmd = "python3 -m gunicorn main:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120"
+cmd = "gunicorn main:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120"
